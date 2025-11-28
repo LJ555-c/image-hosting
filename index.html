@@ -242,7 +242,7 @@ nav a
 
 .warmheartedSub-text 
 {
- font-family: 'NanumYeonJiCe';
+  font-family: 'NanumYeonJiCe';
   position: relative;
   z-index: 2;
   color: #ffd28e;
@@ -250,7 +250,7 @@ nav a
   font-weight: bold;
   text-align: center;
   margin-top: 50px; /* 전문적이고 효율적인 인재 매칭 서비스 수직 위치*/
-  margin-bottom: -5px; /* 4개 이미지 수직 위치 */
+  margin-bottom: -2px; /* 4개 이미지 수직 위치 */
   user-select: none;
 
   text-shadow:
@@ -319,6 +319,12 @@ nav a
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s;
+
+   opacity: 0;                      /* 처음엔 안 보임 */
+  transform: translateX(100%); /* 기본: 오른쪽 바깥에 위치 */
+  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+
+  
 }
 
 /* 이미지 영역 끝~아래 파트 사이 gap 제거 */
@@ -333,6 +339,43 @@ nav a
   padding: 0 !important;
 }
 
+.animation-slider-container {
+  position: relative;
+  transition: transform 0.8s ease-out;
+
+  opacity: 0;                      /* 처음엔 안 보임 */
+  transform: translateX(100%); /* 기본: 오른쪽 바깥에 위치 */
+  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+
+  display:flex;
+  flex-direction: row !important; /* 강제 적용 */
+  
+  gap: 40px;
+  margin-bottom: 100px;
+  
+}
+   
+
+/* NEXT 버튼을 누르면 active 클래스가 추가됨 */
+/* => 슬라이드 등장 */
+.animation-slider-container.active {
+   opacity: 1;
+  transform: translateX(0);
+}
+
+.animation-with-caption img{
+
+  width: 400px;
+  height: 200px;       /* 고정 높이 */
+  object-fit: cover;   /* 일정하게 잘라서 통일 */
+  border-radius: 10px;
+  margin-bottom: 30px !important;
+  padding-bottom: 0 !important;
+  max-width: 90%;
+  transition: transform 0.3s;
+  
+  
+}
 
 
 /* 이미지 영역 끝~아래 파트 사이 gap 제거 */
@@ -805,6 +848,11 @@ nav a
   .top-slider .image-with-caption 
   {
     max-width: 90%;          /* 폭 제한 */
+  }
+
+  .animation-with-caption
+  {
+    max-width: 10px;          /* 폭 제한 */
   }
 
 
@@ -1919,6 +1967,15 @@ position: fixed;
   transition: transform 0.3s;
 }
 
+.map-image-with-caption img {
+  /*  top: 50vh; 화면 상단에서 40% 아래부터 시작 */
+  width: 700px;
+  
+
+  transition: transform 0.3s;
+}
+
+
 .companycustomer-image-with-caption img {
   /*  top: 50vh; 화면 상단에서 40% 아래부터 시작 */
   width: 600px;
@@ -1927,15 +1984,17 @@ position: fixed;
 }
 
 
+ /* descriptions on main page pictures */
+
 .caption {
-  margin-top: 10px;
+  margin-top: 2px;
   background: rgba(255, 255, 255, 0.85);
   padding: 12px 16px;
   border-radius: 10px;
   text-align: center;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  width: 300px;
-  font-size: 14px;
+  width: 270px;
+  font-size: 12px;
   color: #333;
 }
 
@@ -2047,9 +2106,9 @@ position: fixed;
 }
 
 .footer-logo img {
-  width: 160px;
-  height: 60px;
-  opacity: 0.9;
+  width: 200px;
+  height: 50px;
+  opacity: 1;
 }
 
 .footer-info p {
@@ -2069,8 +2128,8 @@ position: fixed;
 }
 
 .footer-logo img {
-  width: 120px;
-  vertical-align: middle;
+  width: 150px;
+  vertical-align:bottom ;
 }
 .slide-image {
   position: fixed;
@@ -2280,27 +2339,27 @@ NEXT
   <div class="dropdown-group">
 
     <div class="dropdown-section">
-       <a href="#" id="businessPartLeftSubMenu">사업분야tt</a>
-       <a href="#" id="CEOPartLeftSubMenu">대표님 인사말P</a>
-       <a href="#" id="companyInforLeftSubMenu">기업정보in</a>
+       <a href="#" id="businessPartLeftSubMenu">사업분야AB</a>
+       <a href="#" id="CEOPartLeftSubMenu">대표님 인사말dazao</a>
+       <a href="#" id="companyInforLeftSubMenu">기업정보CD</a>
 
     </div>
     
     <div class="dropdown-section">
-      <a href="#" id="companyCustomersParLeftSubMenu">기업고객용ppp</a>
-      <a href="#" id="customersInforPartLeftSubMenu">고객사where</a>
+      <a href="#" id="companyCustomersParLeftSubMenu">기업고객용qiy</a>
+      <a href="#" id="customersInforPartLeftSubMenu">고객사kehou</a>
 
     </div>
 
     <div class="dropdown-section">
-      <a href="#" id="law_and_ManagingLeftPartSubMenu">법률 및 규정 준수s</a>
-      <a href="#" id="Managing_EfficientlyPartLeftSubMenu">효율적인 운영 관리1111</a>
+      <a href="#" id="law_and_ManagingLeftPartSubMenu">법률 및 규정 jianqi</a>
+      <a href="#" id="Managing_EfficientlyPartLeftSubMenu">효율적인 운영 관리guanli</a>
 
     </div>
 
     <div class="dropdown-section">
       <a href="#" id="socialActivityLeftPartSubMenu">사회 활동sss</a>
-      <a href="#" id="forWomenPartLeftSubMenu">여성 기업 인증www</a>
+      <a href="#" id="forWomenPartLeftSubMenu">여성 기업 인증nusheng</a>
        <a href="#" id=" "></a>
        <a href="#" id=" "></a>
     </div>
@@ -2320,8 +2379,8 @@ NEXT
   <!-- 이미지 전면 표시 -->
 <div class="image-with-caption">
   <!-- 상단 이미지 3개 (슬라이드 or 고정) -->
-<div class="slider-container top-slider">
-  <div class="image-with-caption">
+<div class="animation-slider-container top-slider">
+  <div class="animation-with-caption">
     <!--<img src="https://img.pikbest.com/photo/20250717/morning-coffee-on-a-rainy-day_11795880.jpg!bwr800" alt="이미지1"> -->
     <!--<img src="https://raw.githubusercontent.com/LJ555-c/image-hosting/main/image1.png" alt="이미지1">-->
 
@@ -2333,7 +2392,7 @@ NEXT
     </div>
   </div>
 
-  <div class="image-with-caption">
+  <div class="animation-with-caption">
     <img src="https://raw.githubusercontent.com/LJ555-c/image-hosting/main/image2.png" alt="이미지2">
     <div class="caption">
       <h3>글로벌 기업 기아 오토랜드</h3>
@@ -2342,7 +2401,7 @@ NEXT
     </div>
   </div>
 
-  <div class="image-with-caption">
+   <div class="animation-with-caption">
 <img src="images/speciallist.png" alt="이미지3">
     <div class="caption">
       <h3>전문가들의 체계적인 관리 시스템</h3>
@@ -2351,7 +2410,7 @@ NEXT
     </div>
   </div>
 
-  <div class="image-with-caption">
+   <div class="animation-with-caption">
     <img  id ="recruitImage"src="https://raw.githubusercontent.com/LJ555-c/image-hosting/main/image4.png" alt="image4">
     <div class="caption">
       <h3>채용문의</h3>
@@ -2392,7 +2451,7 @@ NEXT
     
      <div class="normal-slide-sub-menu">
         <a href="#" id="customerPartPartRightPopup">기업고객용 cc</a>
-        <a href="#" id="customerPartPartRightPopup">고객사vv cc</a>
+        <a href="#" id="introCustomersPartRightPopup">고객사vv cc</a>
      </div>   
 
     </div>
@@ -2405,8 +2464,8 @@ NEXT
    </span>
     
      <div class="normal-slide-sub-menu">
-        <a href="#" id="Law_PartRightPopup">법률 및 규정 준수sst</a>
-        <a href="#" id="Efficient_PartRightPopup">효율적인 운영 관리sst</a>
+        <a href="#" id="Law_PartRightPopup">법률 및 규정 준수js</a>
+        <a href="#" id="Efficient_PartRightPopup">효율적인 운영 관리gl</a>
      </div>   
 </div>
 
@@ -2419,8 +2478,8 @@ NEXT
    </span>
     
     <div class="normal-slide-sub-menu">
-      <a href="#" id="socialActivity-right-popup">사회 활동huodong</a>
-      <a href="#" id="forWomen-right-popup">여성 기업 인증wo</a>
+      <a href="#" id="socialActivity_right_popup">사회 활동huodong</a>
+      <a href="#" id="forWomen_right_popup">여성 기업 인증wo</a>
     </div>   
 </div>
 
@@ -2633,6 +2692,110 @@ NEXT
 
 
 
+      <!-- 문제1 -->
+<div id="customercompanyrightPopupSR" class="customercompany-right-popup">
+  <span class="close-btn" id="closecustomercompanypageBtn">&times;</span>
+  <div class="content-wrapper">
+   <!-- 세로글 -->
+    <div class="vertical-text-busniess">
+      <a href="#">WE ARE WORKING FOR</a>
+    </div>
+
+    <div class="message-box">
+      <div class="horizontal-text">
+        <div class="text-table ">
+          <div>
+            <p><strong><span style="font-size: 40px; color: rgb(255, 128, 0);">고객사</span></strong></p></span>
+          </div>
+          <div>
+            <p><strong><span style="font-size: 40px; color: rgb(0, 0, 0);">인재 매칭 서비스의 전문성을 바탕으로</span></strong></p></span>
+            <p><strong><span style="font-size: 40px; color: rgb(0, 0, 0);">기업과 인재 간의 최적의 연결을 제공합니다.</span></strong></p></span>
+          </div>
+        </div>
+          <br>
+          <!-- 이미지 전면 표시 -->
+        <div class="bis-image-with-caption">
+          <!-- 상단 이미지 3개 (슬라이드 or 고정) -->
+          <div class="bis-slider-container top-slider">
+            <div class="bis-image-with-caption">
+              <img src="images/CUS/1.png" alt="이미지1">
+            </div>
+
+            <div class="bis-image-with-caption">
+              <img src="images/CUS/2.png" alt="이미지2">
+            </div>
+
+            <div class="bis-image-with-caption">
+            <img src="images/CUS/3.png" alt="이미지3">
+
+            </div>
+
+            <div class="bis-image-with-caption">
+              <img src="images/CUS/4.png" alt="이미지4">
+
+            </div>
+          </div>
+
+          <div class="bis-slider-container top-slider">
+            <div class="bis-image-with-caption">
+
+              <img src="images/CUS/5.png" alt="이미지5">
+
+              </div>
+
+              <div class="bis-image-with-caption">
+                <img src="images/CUS/6.png" alt="이미지6">
+              </div>
+
+              <div class="bis-image-with-caption">
+                <img src="images/CUS/7.png" alt="이미지7">
+              </div>
+
+              <div class="bis-image-with-caption">
+                <img src="images/CUS/8.png" alt="이미지8">
+              </div>
+            </div>
+          
+            <div class="bis-slider-container top-slider">
+              <div class="bis-image-with-caption">
+                <img src="images/CUS/9.png" alt="이미지9">
+              </div>
+
+              <div class="bis-image-with-caption">
+                <img src="images/CUS/10.png" alt="이미지10">
+              </div>
+
+              <div class="bis-image-with-caption">
+                <img src="images/CUS/11.png" alt="이미지11">
+              </div>
+
+              <div class="bis-image-with-caption">
+                <img src="images/CUS/12.png" alt="이미지12">
+              </div>
+            </div>
+              
+            <div class="bis-slider-container top-slider">
+              <div class="bis-image-with-caption">
+                <img src="images/CUS/13.png" alt="이미지9">
+              </div>
+
+              <div class="bis-image-with-caption">
+                <img src="images/CUS/14.png" alt="이미지10">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
 
   
     <!-- 대표님 인사말/두번째 -->
@@ -2697,12 +2860,21 @@ NEXT
 </div>
 
 
-   <!-- 대표님 인사말/세번째 -->
+   <!-- 대표님 인사말/그래프 -->
 <div id="headinformationPopupSR" class="head-right-popup">
   <span class="close-btn" id="closeheadpageBtn">&times;</span>
+
+  
+  <!-- 기존 그래프, 슬라이더 등... -->
+
+      <!-- 카카오맵 영역 -->
+
+
+
+
    <!-- 세로글 -->
     <div class="vertical-text-busniess">
-      <a href="#">BUSINESS PART FROM COMPANY</a>
+      <a href="#">WE HAVE GROWN UP LIKE THIS</a>
     </div>
 
       <title>그래프 템플릿</title>
@@ -2725,7 +2897,7 @@ NEXT
           }
 
           .point {
-            fill: var(--point-color, #FF8000);
+            fill: var(--point-color, #ff0202);
             opacity: 0;
             transition: opacity 0.3s ease;
           }
@@ -2745,7 +2917,7 @@ NEXT
 
           .connect-line {
             fill: none;
-            stroke: var(--line-color, #FF8000);
+            stroke: var(--line-color, #002fff);
             stroke-width: 3;
             stroke-dasharray: 1000;
             stroke-dashoffset: 1000;
@@ -2754,7 +2926,7 @@ NEXT
 
           .final-label {
             font-size: 14px;
-            fill: var(--line-color, #FF8000);
+            fill: var(--line-color, #ff0000);
             opacity: 0;
             transition: opacity 0.6s ease;
           }
@@ -2769,236 +2941,305 @@ NEXT
             stroke-width: 1;
             stroke-dasharray: 4 4;
           }
+
+          .bar {
+            fill: #999; /* 기본 회색 */
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+          }
+
+          /* 135 값 막대만 주황색 */
+          .special-bar {
+            fill: rgb(255, 128, 0) !important;
+          }
         </style>
       </head>
+                  
          
 
-            <div class="bis-image-with-caption">
-              <!-- 상단 이미지 3개 (슬라이드 or 고정) -->
-              <div class="message-box">
-                <a href="#">
-                <div class="horizontal-text">
+
+
+    <div class="bis-image-with-caption">
+
+      
+      
+      <!-- 상단 이미지 3개 (슬라이드 or 고정) -->
+      <div class="message-box">
+        <a href="#">
+        <div class="horizontal-text">
+          </a>
+          <span style="font-size: 40px;color:  rgb(255, 128, 0);">회사실적</span></p><p style="text-align: center;"></p>
+          <span style="font-size: 20px; ">매출액 (단위 : 억원)</span></p><p style="text-align: center;"></p>
+          <br>
+          <a href="#">
+            <body>
+        <svg id="chart" viewBox="0 0 360 300">
+          <g id="y-grid"></g>
+          <g id="plot"></g>
+        </svg>
+
+        <script>
+          (function(){
+            const svg = document.getElementById("chart");
+            const yGrid = svg.querySelector("#y-grid");
+            const plot = svg.querySelector("#plot");
+
+            // 데이터 (맞춰서 바꿔)
+            const labels = ["2017","2018","2019","2020","2021","2022","2023","2023"];
+            const values = [8, 17, 19, 22, 30, 40,80,135];
+            const maxY = 150;
+
+            const width = 300;  //막대가 숨겨짐
+            
+            const height = 240;
+            const gap = 15;
+            const barWidth = (width - gap * (labels.length + 1)) / labels.length;
+            const bottomMargin = 20;
+
+            // Y축 + 그리드 그리기
+            function drawY() {
+              
+              const g = document.createElementNS("http://www.w3.org/2000/svg","g");
+
+              // Y축
+              const yAxis = document.createElementNS("http://www.w3.org/2000/svg","line");
+              yAxis.setAttribute("x1", 0);
+              yAxis.setAttribute("y1", 0);
+              yAxis.setAttribute("x2", 0);
+              yAxis.setAttribute("y2", height - bottomMargin);
+              yAxis.setAttribute("stroke", "var(--grid-color, #ddd)");
+              yAxis.setAttribute("stroke-dasharray", "4 4");
+              g.appendChild(yAxis);
+
+              // 그리드 + 레이블
+              const steps = 5;
+              for (let i = 1; i <= steps; i++) {
+                const v = (maxY / steps) * i;
+                const y = (height - bottomMargin) - (v / maxY) * (height - bottomMargin);
+
+                const line = document.createElementNS("http://www.w3.org/2000/svg","line");
+                line.setAttribute("x1", 0);
+                line.setAttribute("y1", y);
+                line.setAttribute("x2", width);
+                line.setAttribute("y2", y);
+                line.setAttribute("class", "y-grid-line");
+                g.appendChild(line);
+
+                const label = document.createElementNS("http://www.w3.org/2000/svg","text");
+                label.setAttribute("x", 5);
+                label.setAttribute("y", y + 4);
+                label.setAttribute("class", "y-label");
+                label.textContent = v;
+                g.appendChild(label);
+              }
+
+              yGrid.appendChild(g);
+            }
+
+            // 막대 + 선 + 포인트 + 라벨 생성
+            function drawPlot() 
+            {
+              const g = document.createElementNS("http://www.w3.org/2000/svg","g");
+              plot.appendChild(g);
+
+              const bars = [];
+              const points = [];
+
+              labels.forEach((lbl, i) => {
+                const x = gap + i * (barWidth + gap);
+                const val = values[i];
+                const barHeight = (val / maxY) * (height - bottomMargin);
+                const y = (height - bottomMargin) - barHeight;
+
+                // 막대
+                const rect = document.createElementNS("http://www.w3.org/2000/svg","rect");
+                rect.setAttribute("x", x);
+                rect.setAttribute("y", y);
+                rect.setAttribute("width", barWidth);
+                rect.setAttribute("height", barHeight);
+                rect.setAttribute("class", "bar");
+                g.appendChild(rect);
+                bars.push(rect);
+
+                // 135인 막대만 특별 클래스 추가
+                if (val === 135) {
+                  rect.setAttribute("class", "bar special-bar");
+                } else {
+                  rect.setAttribute("class", "bar");
+                }
+
+                // 포인트
+                const cx = x + barWidth / 2;
+                const cy = y;
+                const circle = document.createElementNS("http://www.w3.org/2000/svg","circle");
+                circle.setAttribute("cx", cx);
+                circle.setAttribute("cy", cy);
+                circle.setAttribute("r", 4);
+                circle.setAttribute("class", "point");
+                g.appendChild(circle);
+                points.push({ cx, cy, el: circle });
+
+                // 값 라벨
+                const valLbl = document.createElementNS("http://www.w3.org/2000/svg","text");
+                valLbl.setAttribute("x", cx);
+                valLbl.setAttribute("y", cy - 8);
+                valLbl.setAttribute("class", "val-label");
+                valLbl.textContent = val;
+                g.appendChild(valLbl);
+
+                // x축 라벨
+                const xLbl = document.createElementNS("http://www.w3.org/2000-svg","text");
+                xLbl.setAttribute("x", cx);
+                xLbl.setAttribute("y", height - bottomMargin + 15);
+                xLbl.setAttribute("class", "x-label");
+                xLbl.textContent = lbl;
+                g.appendChild(xLbl);
+              });
+
+              // 선 연결
+              const poly = document.createElementNS("http://www.w3.org/2000/svg","polyline");
+              poly.setAttribute("class", "connect-line");
+              const pts = points.map(p => `${p.cx},${p.cy}`).join(" ");
+              poly.setAttribute("points", pts);
+              g.appendChild(poly);
+
+              // 마지막 값 라벨
+              const last = points[points.length - 1];
+              const finalLbl = document.createElementNS("http://www.w3.org/2000/svg","text");
+              finalLbl.setAttribute("x", last.cx);
+              finalLbl.setAttribute("y", last.cy - 25);
+              finalLbl.setAttribute("class", "final-label");
+              finalLbl.textContent = values[values.length - 1] + " 단위";
+              g.appendChild(finalLbl);
+
+              // 애니메이션
+              setTimeout(() => {
+                bars.forEach((bar, idx) => {
+                  setTimeout(() => bar.classList.add("show"), idx * 200);
+                });
+                points.forEach((pt, idx) => {
+                  setTimeout(() => {
+                    pt.el.classList.add("show");
+                    // 대응하는 값 라벨
+                    const lbl = g.querySelectorAll(".val-label")[idx];
+                    lbl.classList.add("show");
+                  }, bars.length * 200 + idx * 150);
+                });
+
+                setTimeout(() => {
+                  poly.style.strokeDashoffset = "0";
+                }, bars.length * 200 + points.length * 150 + 300);
+
+                setTimeout(() => {
+                  finalLbl.style.opacity = 1;
+                }, bars.length * 200 + points.length * 150 + 900);
+              }, 500);
+            }
+
+            drawY();
+            drawPlot();
+
+          })();
+          
+        </script>
+        <br>
+
+              
+
+
+          <span style="font-size: 40px;color:  rgb(255, 128, 0);">회사연혁</span></p><p style="text-align: center;"></p>
+            <span style="font-size: 20px; ">2017년 설립부터 이어져온 (주)따뜻한 사람들</span></p><p style="text-align: center;"></p>
+
+          <!-- 이미지 전면 표시 -->
+          <div class="bis-image-with-caption">
+            <!-- 상단 이미지 3개 (슬라이드 or 고정) -->
+            <div class="bis-slider-container top-slider">
+              <div class="bis-image-with-caption">
+                
+                <img src="images/2017.png" alt="이미지1">
+                
+              </div>
+
+              <div class="bis-image-with-caption">
+                <img src="images/2018.png" alt="이미지2">
+                
+              </div>
+
+              <div class="bis-image-with-caption">
+              <img src="images/2019.png" alt="이미지3">
+            
+              </div>
+
+              <div class="bis-image-with-caption">
+                <img src="images/2019.png" alt="이미지4">
+                
+              </div>
+            </div>
+            <br>
+
+
+            <div class="history-image-with-caption img">
+            <img src="images/history.png" alt="이미지1">
+            </div>
+
+
+            <div class="his-slider-container top-slider">
+              <div class="bis-image-with-caption">
+                
+                <img src="images/2021.png" alt="이미지1">
+                
+              </div>
+
+              <div class="bis-image-with-caption">
+                <img src="images/2022.png" alt="이미지2">
+                
+              </div>
+
+              <div class="bis-image-with-caption">
+              <img src="images/2023.png" alt="이미지3">
+            
+              </div>
+
+              <div class="bis-image-with-caption">
+                <img src="images/2024.png" alt="이미지4">
+              </div>
+            </div>
+            
+            <span style="font-size: 40px;color:  rgb(255, 128, 0);">회사위치</span></p><p style="text-align: center;"></p>
+            <span style="font-size: 20px; ">평택, 광명, 광주, 울산에 있는 (주)따뜻한 사람들</span></p><p style="text-align: center;"></p>
+      
+              <br>
+
+            <div style="font: 12px AppleSDGothicNeo-Regular, dotum, sans-serif; letter-spacing: -1px; width: 140px; height: 562px; color: rgb(51, 51, 51); position: relative;">
+            <div class="map-image-with-caption img">
+              <div style="height: 360px;"><a href="https://map.kakao.com/?urlX=473910.0000000013&amp;urlY=1088448.999999999&amp;itemId=738729529&amp;q=%EB%94%B0%EB%9C%BB%ED%95%9C%EC%82%AC%EB%9E%8C%EB%93%A4&amp;srcid=738729529&amp;map_type=TYPE_MAP&amp;from=roughmap" target="_blank">
+                <img class="map" src="http://t1.daumcdn.net/roughmap/imgmap/60dd4bd2ed5c733a2da0868eaf0361641cc9bbb08a73b0a21db4dcf36e0ab5aa" 
+                width="500" 
+                height="358" 
+                style="border: 1px solid rgb(204, 204, 204);"></a></div>
+                <div style="overflow: hidden; padding: 7px 11px; border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 0px 0px 2px 2px; background-color: rgb(249, 249, 249);">
+                  <a href="https://map.kakao.com" target="_blank" style="float: left;">
+                    <img src="//t1.daumcdn.net/localimg/localimages/07/2018/pc/common/logo_kakaomap.png" 
+                    width="72" 
+                    height="16" alt="카카오맵" style="display:block;width:72px;height:16px">
                   </a>
-                  <a href="#">
-                    <body>
-                <svg id="chart" viewBox="0 0 360 300">
-                  <g id="y-grid"></g>
-                  <g id="plot"></g>
-                </svg>
-
-                <script>
-                  (function(){
-                    const svg = document.getElementById("chart");
-                    const yGrid = svg.querySelector("#y-grid");
-                    const plot = svg.querySelector("#plot");
-
-                    // 데이터 (맞춰서 바꿔)
-                    const labels = ["2017","2018","2019","2020","2021","2022","2023","2023"];
-                    const values = [8, 17, 19, 22, 30, 40,80,135];
-                    const maxY = 150;
-
-                    const width = 300;  //막대가 숨겨짐
-                    
-                    const height = 240;
-                    const gap = 15;
-                    const barWidth = (width - gap * (labels.length + 1)) / labels.length;
-                    const bottomMargin = 20;
-
-                    // Y축 + 그리드 그리기
-                    function drawY() {
-                      const g = document.createElementNS("http://www.w3.org/2000/svg","g");
-
-                      // Y축
-                      const yAxis = document.createElementNS("http://www.w3.org/2000/svg","line");
-                      yAxis.setAttribute("x1", 0);
-                      yAxis.setAttribute("y1", 0);
-                      yAxis.setAttribute("x2", 0);
-                      yAxis.setAttribute("y2", height - bottomMargin);
-                      yAxis.setAttribute("stroke", "var(--grid-color, #ddd)");
-                      yAxis.setAttribute("stroke-width", "1.5");
-                      g.appendChild(yAxis);
-
-                      // 그리드 + 레이블
-                      const steps = 5;
-                      for (let i = 1; i <= steps; i++) {
-                        const v = (maxY / steps) * i;
-                        const y = (height - bottomMargin) - (v / maxY) * (height - bottomMargin);
-
-                        const line = document.createElementNS("http://www.w3.org/2000/svg","line");
-                        line.setAttribute("x1", 0);
-                        line.setAttribute("y1", y);
-                        line.setAttribute("x2", width);
-                        line.setAttribute("y2", y);
-                        line.setAttribute("class", "y-grid-line");
-                        g.appendChild(line);
-
-                        const label = document.createElementNS("http://www.w3.org/2000/svg","text");
-                        label.setAttribute("x", -5);
-                        label.setAttribute("y", y + 4);
-                        label.setAttribute("class", "y-label");
-                        label.textContent = v;
-                        g.appendChild(label);
-                      }
-
-                      yGrid.appendChild(g);
-                    }
-
-                    // 막대 + 선 + 포인트 + 라벨 생성
-                    function drawPlot() 
-                    {
-                      const g = document.createElementNS("http://www.w3.org/2000/svg","g");
-                      plot.appendChild(g);
-
-                      const bars = [];
-                      const points = [];
-
-                      labels.forEach((lbl, i) => {
-                        const x = gap + i * (barWidth + gap);
-                        const val = values[i];
-                        const barHeight = (val / maxY) * (height - bottomMargin);
-                        const y = (height - bottomMargin) - barHeight;
-
-                        // 막대
-                        const rect = document.createElementNS("http://www.w3.org/2000/svg","rect");
-                        rect.setAttribute("x", x);
-                        rect.setAttribute("y", y);
-                        rect.setAttribute("width", barWidth);
-                        rect.setAttribute("height", barHeight);
-                        rect.setAttribute("class", "bar");
-                        g.appendChild(rect);
-                        bars.push(rect);
-
-                        // 포인트
-                        const cx = x + barWidth / 2;
-                        const cy = y;
-                        const circle = document.createElementNS("http://www.w3.org/2000/svg","circle");
-                        circle.setAttribute("cx", cx);
-                        circle.setAttribute("cy", cy);
-                        circle.setAttribute("r", 4);
-                        circle.setAttribute("class", "point");
-                        g.appendChild(circle);
-                        points.push({ cx, cy, el: circle });
-
-                        // 값 라벨
-                        const valLbl = document.createElementNS("http://www.w3.org/2000/svg","text");
-                        valLbl.setAttribute("x", cx);
-                        valLbl.setAttribute("y", cy - 8);
-                        valLbl.setAttribute("class", "val-label");
-                        valLbl.textContent = val;
-                        g.appendChild(valLbl);
-
-                        // x축 라벨
-                        const xLbl = document.createElementNS("http://www.w3.org/2000-svg","text");
-                        xLbl.setAttribute("x", cx);
-                        xLbl.setAttribute("y", height - bottomMargin + 15);
-                        xLbl.setAttribute("class", "x-label");
-                        xLbl.textContent = lbl;
-                        g.appendChild(xLbl);
-                      });
-
-                      // 선 연결
-                      const poly = document.createElementNS("http://www.w3.org/2000/svg","polyline");
-                      poly.setAttribute("class", "connect-line");
-                      const pts = points.map(p => `${p.cx},${p.cy}`).join(" ");
-                      poly.setAttribute("points", pts);
-                      g.appendChild(poly);
-
-                      // 마지막 값 라벨
-                      const last = points[points.length - 1];
-                      const finalLbl = document.createElementNS("http://www.w3.org/2000/svg","text");
-                      finalLbl.setAttribute("x", last.cx);
-                      finalLbl.setAttribute("y", last.cy - 25);
-                      finalLbl.setAttribute("class", "final-label");
-                      finalLbl.textContent = values[values.length - 1] + " 단위";
-                      g.appendChild(finalLbl);
-
-                      // 애니메이션
-                      setTimeout(() => {
-                        bars.forEach((bar, idx) => {
-                          setTimeout(() => bar.classList.add("show"), idx * 200);
-                        });
-                        points.forEach((pt, idx) => {
-                          setTimeout(() => {
-                            pt.el.classList.add("show");
-                            // 대응하는 값 라벨
-                            const lbl = g.querySelectorAll(".val-label")[idx];
-                            lbl.classList.add("show");
-                          }, bars.length * 200 + idx * 150);
-                        });
-
-                        setTimeout(() => {
-                          poly.style.strokeDashoffset = "0";
-                        }, bars.length * 200 + points.length * 150 + 300);
-
-                        setTimeout(() => {
-                          finalLbl.style.opacity = 1;
-                        }, bars.length * 200 + points.length * 150 + 900);
-                      }, 500);
-                    }
-
-                    drawY();
-                    drawPlot();
-
-                  })();
+                    <div style="float: right; position: relative; top: 1px; font-size: 11px;">
+                      <a target="_blank" href="https://map.kakao.com/?from=roughmap&amp;srcid=738729529&amp;confirmid=738729529&amp;q=%EB%94%B0%EB%9C%BB%ED%95%9C%EC%82%AC%EB%9E%8C%EB%93%A4&amp;rv=on" 
+                      style="float:left;height:15px;padding-top:1px;line-height:15px;color:#000;text-decoration: none;">로드뷰</a>
+                      <span style="width: 1px;padding: 0;margin: 0 8px 0 9px;height: 11px;vertical-align: top;position: relative;top: 2px;border-left: 1px solid #d0d0d0;float: left;">
+                        
+                      </span>
+                      <a target="_blank" href="https://map.kakao.com/?from=roughmap&amp;eName=%EB%94%B0%EB%9C%BB%ED%95%9C%EC%82%AC%EB%9E%8C%EB%93%A4&amp;eX=473910.0000000013&amp;eY=1088448.999999999" 
+                      style="float:left;height:15px;padding-top:1px;line-height:15px;color:#000;text-decoration: none;">길찾기</a>
+                      <span style="width: 1px;padding: 0;margin: 0 8px 0 9px;height: 11px;vertical-align: top;position: relative;top: 2px;border-left: 1px solid #d0d0d0;float: left;"></span>
+                      <a target="_blank" href="https://map.kakao.com?map_type=TYPE_MAP&amp;from=roughmap&amp;srcid=738729529&amp;itemId=738729529&amp;q=%EB%94%B0%EB%9C%BB%ED%95%9C%EC%82%AC%EB%9E%8C%EB%93%A4&amp;urlX=473910.0000000013&amp;urlY=1088448.999999999" 
+                      style="float:left;height:15px;padding-top:1px;line-height:15px;color:#000;text-decoration: none;">지도 크게 보기</a>
+                    </div>
+                </div>
                   
-                </script>
-                <br>
-
-                <!-- 이미지 전면 표시 -->
-                <div class="bis-image-with-caption">
-                  <!-- 상단 이미지 3개 (슬라이드 or 고정) -->
-                  <div class="bis-slider-container top-slider">
-                    <div class="bis-image-with-caption">
-                      
-                      <img src="images/2017.png" alt="이미지1">
-                      
-                    </div>
-
-                    <div class="bis-image-with-caption">
-                      <img src="images/2018.png" alt="이미지2">
-                      
-                    </div>
-
-                    <div class="bis-image-with-caption">
-                    <img src="images/2019.png" alt="이미지3">
-                  
-                    </div>
-
-                    <div class="bis-image-with-caption">
-                      <img src="images/2019.png" alt="이미지4">
-                      
-                    </div>
-                  </div>
-                  <br>
-
-
-                  <div class="history-image-with-caption img">
-                  <img src="images/history.png" alt="이미지1">
-                  </div>
-
-
-                  <div class="his-slider-container top-slider">
-                    <div class="bis-image-with-caption">
-                      
-                      <img src="images/2021.png" alt="이미지1">
-                      
-                    </div>
-
-                    <div class="bis-image-with-caption">
-                      <img src="images/2022.png" alt="이미지2">
-                      
-                    </div>
-
-                    <div class="bis-image-with-caption">
-                    <img src="images/2023.png" alt="이미지3">
-                  
-                    </div>
-
-                    <div class="bis-image-with-caption">
-                      <img src="images/2024.png" alt="이미지4">
-                    
-                    </div>
-                  </div>
+               
+               
                 </div>
               </div>
           </body>
@@ -3006,6 +3247,8 @@ NEXT
       </div>
     </div>
   </div>
+
+  
 </div>
 
 
@@ -4100,7 +4343,7 @@ NEXT
               <p style="text-align: left;">
               <strong>
                 <span style="font-size: 18px;">  따뜻한 사람들</span></strong></p><p style="text-align: left;">
-                  <span style="font-size: 30px;color: rgb(255, 128, 0);">  CEO 인사말</span></strong></p><p style="text-align: left;"></p>
+                  <span style="font-size: 30px;color: rgb(255, 128, 0);">여성 기업 인증 서류</span></strong></p><p style="text-align: left;"></p>
                    <img id="image-box" src="images/women_confirm.jpg" alt="" width="800" height="auto" />
                   <span style="font-size: 30px; color: rgb(255, 128, 0);">
                   </span>        
@@ -4129,7 +4372,7 @@ NEXT
       <!-- 왼쪽 3줄 -->
       <div class="footer-col">
         <p><strong>회사명:</strong> 따뜻한 사람들</p>
-        <p><strong>전화번호:</strong> 02-123-4567</p>
+        <p><strong>전화번호:</strong> 02-2603-5501</p>
         <p>Copyright© 따뜻한 사람들 ALL RIGHTS RESERVED</p>
         
       </div>
@@ -4154,7 +4397,11 @@ NEXT
 
 
 
+document.querySelector(".next-button").addEventListener("click", function (e) {
+    e.preventDefault();  // 링크 이동 방지
 
+    document.querySelector(".animation-slider-container").classList.add("active");
+});
 
 
  
@@ -4295,8 +4542,14 @@ const companyCustomersParLeftSubMenu = document.getElementById('companyCustomers
 
 
 
+
 const law_and_ManagingLeftPartSubMenu = document.getElementById('law_and_ManagingLeftPartSubMenu');
 const Managing_EfficientlyPartLeftSubMenu = document.getElementById('Managing_EfficientlyPartLeftSubMenu');
+
+const Law_PartRightPopup = document.getElementById('Law_PartRightPopup');
+const Efficient_PartRightPopup = document.getElementById('Efficient_PartRightPopup');
+
+
 
 const socialActivityLeftPartSubMenu = document.getElementById('socialActivityLeftPartSubMenu');
 const forWomenPartLeftSubMenu = document.getElementById('forWomenPartLeftSubMenu');
@@ -4307,16 +4560,22 @@ const forWomenPartLeftSubMenu = document.getElementById('forWomenPartLeftSubMenu
 
 
 const customercompanyRightPopup = document.getElementById('customercompanyRightPopup');
+const socialActivity_right_popup= document.getElementById('socialActivity_right_popup');
 
 
 
+
+
+const businessPartRightPopup = document.getElementById('businessPartRightPopup');// 사업 파트 버튼
+const CEORightPopup = document.getElementById('CEORightPopup');   // 대표님 인사 파트 버튼
+const headinforRightPopup = document.getElementById('headinforRightPopup');   // 기업 정보버튼
 
 
 const customerPartPartRightPopup = document.getElementById('customerPartPartRightPopup');
-const businessPartRightPopup = document.getElementById('businessPartRightPopup');
-const CEORightPopup = document.getElementById('CEORightPopup');   // 버튼
+const introCustomersPartRightPopup = document.getElementById('introCustomersPartRightPopup');
 
-const headinforRightPopup = document.getElementById('headinforRightPopup');   // 버튼
+
+
 
 const managingRightPopupSR = document.getElementById('managingRightPopupSR');   // 버튼
 
@@ -4414,6 +4673,29 @@ customerPartPartRightPopup.addEventListener('click', () => {
   forWomenRightPopupSR.style.display = 'none';
 
 });
+
+introCustomersPartRightPopup.addEventListener('click', () => {
+
+  businessLeftPopup.style.display = 'none';
+  customersLeftPopup.style.display = 'block';
+  managersLeftPopup.style.display = 'none';
+  socialLeftPopup.style.display = 'none';
+
+  businessrightPopupSR.style.display = 'none' ;
+  CEORightPopupSR.style.display = 'none'  ;
+  servicesRightPopupSR.style.display = 'none' ;
+
+  customercompanyrightPopupSR.style.display = 'block' ;
+  headinformationPopupSR.style.display = 'none' ;
+
+  lawRightPopupSR.style.display = 'none'; 
+  efficientRightPopupSR.style.display = 'none';
+
+  socialActivityRightPopupSR.style.display = 'none';
+  forWomenRightPopupSR.style.display = 'none';
+
+});
+
 
 
 
@@ -4650,6 +4932,10 @@ socialActivityLeftPartSubMenu.addEventListener('click', () => {
 });
 
 
+socialActivity_right_popup.addEventListener('click', () => {
+  socialActivityRightPopupSR.style.display = 'none';
+});
+
 
 
 closesocialActivitypageBtn.addEventListener('click', () => {
@@ -4712,6 +4998,7 @@ businessPartRightPopup.addEventListener('click', () => {
   
   CEORightPopupSR.style.display = 'none';
   businessrightPopupSR.style.display = 'block';
+    headinformationPopupSR.style.display = 'none';
 });
 
 
@@ -4719,6 +5006,32 @@ const closebusinesspageBtn = document.getElementById('closebusinesspageBtn');
 
 closebusinesspageBtn.addEventListener('click', () => {
   businessrightPopupSR.style.display = 'none';
+
+});
+
+
+headinforRightPopup.addEventListener('click', () => {
+  
+  CEORightPopupSR.style.display = 'none';
+  businessrightPopupSR.style.display = 'none';
+  headinformationPopupSR.style.display = 'block';
+});
+
+
+const closeheadpageBtn = document.getElementById('closeheadpageBtn');
+
+closebusinesspageBtn.addEventListener('click', () => {
+  headinformationPopupSR.style.display = 'none';
+});
+
+
+
+
+CEORightPopup.addEventListener('click', () => {
+  
+  CEORightPopupSR.style.display = 'block';
+  businessrightPopupSR.style.display = 'none';
+  headinformationPopupSR.style.display = 'none';
 });
 
 
@@ -4726,14 +5039,21 @@ closebusinesspageBtn.addEventListener('click', () => {
 
 
 // 버튼 클릭 → 팝업 열기
-CEORightPopup.addEventListener('click', (e) => {
+CEORightPopup.addEventListener('click', () => {
   e.preventDefault();
-  CEORightPopupSR.style.display = 'block';
+headinformationPopupSR.style.display = 'none';
+  businessrightPopupSR.style.display = 'none';
+  CEORightPopupSR.style.display = 'block'  ;
+  
+
  
 });
 
-headinforRightPopup.addEventListener('click', (e) => {
+headinforRightPopup.addEventListener('click', () => {
   e.preventDefault();
+
+  CEORightPopupSR.style.display = 'none';
+  businessrightPopupSR.style.display = 'none';
   headinformationPopupSR.style.display = 'block';
  
 });
@@ -4756,10 +5076,51 @@ closeServicesBtn.addEventListener('click', () => {
   // 고객용 버튼 클릭 → 서비스 팝업 열기
 
 
-  
+
+Law_PartRightPopup.addEventListener('click', () => {
+
+  businessLeftPopup.style.display = 'none';
+  customersLeftPopup.style.display = 'none';
+  managersLeftPopup.style.display = 'block';
+  socialLeftPopup.style.display = 'none';
+
+  businessrightPopupSR.style.display = 'none' ;
+  CEORightPopupSR.style.display = 'none'  ;
+  servicesRightPopupSR.style.display = 'none' ;
+
+  customercompanyrightPopupSR.style.display = 'none' ;
+  headinformationPopupSR.style.display = 'none' ;
+
+  lawRightPopupSR.style.display = 'block'; 
+  efficientRightPopupSR.style.display = 'none';
+
+  socialActivityRightPopupSR.style.display = 'none';
+  forWomenRightPopupSR.style.display = 'none';
+
+});
 
 
 
+
+Efficient_PartRightPopup.addEventListener('click', () => {
+  businessLeftPopup.style.display = 'none';
+  customersLeftPopup.style.display = 'none';
+  managersLeftPopup.style.display = 'block';
+  socialLeftPopup.style.display = 'none';
+
+  businessrightPopupSR.style.display = 'none' ;
+  CEORightPopupSR.style.display = 'none'  ;
+  servicesRightPopupSR.style.display = 'none' ;
+
+  customercompanyrightPopupSR.style.display = 'none' ;
+  headinformationPopupSR.style.display = 'none' ;
+
+  lawRightPopupSR.style.display = 'none'; 
+  efficientRightPopupSR.style.display = 'block';
+
+  socialActivityRightPopupSR.style.display = 'none';
+  forWomenRightPopupSR.style.display = 'none';
+});
 
 
 
